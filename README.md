@@ -19,67 +19,92 @@ This project simulates a backend railway management system similar to IRCTC, all
 
 ## Setup Instructions
 
-1. Clone the Repository:
+1. **Clone the Project:**
 
-git clone https://github.com/Alpeshgarg/SDE_API_Round_WorkIndia.git
-cd SDE_API_Round_WorkIndia
+    ```bash
+    git clone https://github.com/Alpeshgarg/SDE_API_Round_WorkIndia.git
+    cd SDE_API_Round_WorkIndia
+    ```
 
-2. Install Dependencies:
+2. **Install Dependencies:**
 
-npm install
+    ```bash
+    npm install
+    ```
 
-3. Configure PostgreSQL: Ensure PostgreSQL is running and create the necessary tables.
+3. **Configure PostgreSQL:**
 
-Users Table:
+    Ensure PostgreSQL is installed and create the following tables:
 
-CREATE TABLE users (
-  id SERIAL PRIMARY KEY,
-  username VARCHAR(100),
-  password VARCHAR(100),
-  role VARCHAR(50)
-);
+    **Users Table:**
 
-Trains Table:
+    ```sql
+    CREATE TABLE users (
+      id SERIAL PRIMARY KEY,
+      username VARCHAR(100),
+      password VARCHAR(100),
+      role VARCHAR(50)
+    );
+    ```
 
+    **Trains Table:**
 
-CREATE TABLE trains (
-  id SERIAL PRIMARY KEY,
-  source VARCHAR(100),
-  destination VARCHAR(100),
-  total_seats INT,
-  available_seats INT
-);
+    ```sql
+    CREATE TABLE trains (
+      id SERIAL PRIMARY KEY,
+      source VARCHAR(100),
+      destination VARCHAR(100),
+      total_seats INT,
+      available_seats INT
+    );
+    ```
 
-Bookings Table:
+    **Bookings Table:**
 
-CREATE TABLE bookings (
-  id SERIAL PRIMARY KEY,
-  user_id INT REFERENCES users(id),
-  train_id INT REFERENCES trains(id),
-  seat_number INT
-);
-Create a .env File: Create a .env file in the root directory and add the following variables:
+    ```sql
+    CREATE TABLE bookings (
+      id SERIAL PRIMARY KEY,
+      user_id INT REFERENCES users(id),
+      train_id INT REFERENCES trains(id),
+      seat_number INT
+    );
+    ```
 
-DB_USER=your_postgres_username
-DB_PASSWORD=your_postgres_password
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=your_database_name
-SECRET_KEY=your_jwt_secret_key
-ADMIN_API_KEY=your_admin_api_key
-Run the Project: Start the server:
+4. **Create a .env File:**
 
+    In the root of the project directory, create a `.env` file with the following variables:
 
-node index.js
-The server will run locally at http://localhost:3000.
+    ```plaintext
+    DB_USER=your_postgres_username
+    DB_PASSWORD=your_postgres_password
+    DB_HOST=localhost
+    DB_PORT=5432
+    DB_NAME=your_database_name
+    SECRET_KEY=your_jwt_secret_key
+    ADMIN_API_KEY=your_admin_api_key
+    ```
 
-API Endpoints
-User Registration: POST /auth/register
-User Login: POST /auth/login
-Admin Add Train (API key required): POST /admin/add_train
-Get Train Availability: GET /trains
-Book a Seat (JWT required): POST /book_seat/:train_id
-Get Booking Details (JWT required): GET /booking/:user_id
-Notes
-Ensure PostgreSQL is running before starting the application.
-Admin routes, like adding trains, require an API key.
+5. **Run the Project Locally:**
+
+    ```bash
+    node index.js
+    ```
+
+    The server will run locally at [http://localhost:3000](http://localhost:3000).
+
+6. **Test the API Endpoints:**
+
+    Use Postman or a similar tool to test the following routes:
+
+    - **User Registration:** `POST /auth/register`
+    - **User Login:** `POST /auth/login`
+    - **Admin Add Train (API Key required):** `POST /admin/add_train`
+    - **Get Train Availability:** `GET /trains`
+    - **Book a Seat (JWT required):** `POST /book_seat/:train_id`
+    - **Get Booking Details (JWT required):** `GET /booking/:user_id`
+
+## Important Notes
+
+- Ensure that PostgreSQL is running before starting the application.
+- Admin routes, like adding trains, require an API key.
+
