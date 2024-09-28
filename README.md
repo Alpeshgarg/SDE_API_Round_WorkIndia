@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project simulates a backend railway management system similar to IRCTC, allowing users to check train availability, book seats, and manage train information via admin access. The system ensures accurate real-time bookings, even during concurrent user actions.
+This simulates a backend railway management system like the IRCTC wherein users can view train availability, book seats, and manage train information by the admin. It ensures that bookings happen in real-time with accuracy even while the operation is being performed concurrently by different users.
 
 ## Tech Stack
 
@@ -12,10 +12,10 @@ This project simulates a backend railway management system similar to IRCTC, all
 - **Testing Tool:** Postman
 
 ## Features
-**User Registration & Login**: Secure user authentication using JWT.
+**User Registration & Login**: The user authentication would be secured using JWT.
 **Role-Based Access**: Admins can add, update, and manage train data.
 **Seat Availability**: Users can check seat availability between any two stations.
-**Real-Time Booking**: Users can book available seats, with real-time updates on availability.
+**Real-Time Booking**: Users can check seat availability between any two stations.
 
 ## Setup Instructions
 
@@ -72,7 +72,7 @@ This project simulates a backend railway management system similar to IRCTC, all
 
 4. **Create a .env File:**
 
-    In the root of the project directory, create a `.env` file with the following variables:
+    Create a file called .env in the root of the project directory with the followingvariables:
 
     ```plaintext
     DB_USER=your_postgres_username
@@ -94,7 +94,7 @@ This project simulates a backend railway management system similar to IRCTC, all
 
 6. **Test the API Endpoints:**
 
-    Use Postman or a similar tool to test the following routes:
+    Let's test the following routes using Postman or any equivalent tool
 
     - **User Registration:** `POST /auth/register`
     - **User Login:** `POST /auth/login`
@@ -105,6 +105,6 @@ This project simulates a backend railway management system similar to IRCTC, all
 
 ## Important Notes
 
-- Ensure that PostgreSQL is running before starting the application.
-- Admin routes, like adding trains, require an API key.
+- The application should run only after PostgreSQL is active.
+- Admin routes like the addition of trains need an API key.
 
